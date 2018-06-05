@@ -1,6 +1,6 @@
 {
   "name": "hyper-solarized-one",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Solarized theme for Hyper Terminal that can automatically switch light/dark based on time of day.",
   "main": "index.js",
   "keywords": [

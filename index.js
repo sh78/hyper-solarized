@@ -21,50 +21,34 @@ const colors = {
 exports.decorateConfig = config => {
   // parse user's conf to get a nice object
   const formatTime = (str) => {
-    let obj;
+    let seconds; // one day === 86400
     if (str) {
       let arr = str.split(':').slice(0,2);
       for(let i = 0; i < arr.length; i++) {
         arr[i] = parseInt(arr[i]);
       }
-      let obj = {
-        hours: arr[0],
-        minutes: arr[1],
-      };
+      seconds = (arr[0] * 60 * 60) + (arr[1] * 60);
     }
-    return obj;
+    return seconds;
   };
 
   const lightTime = formatTime(config.solarized.light);
   const darkTime = formatTime(config.solarized.dark);
-  // console.info(lightTime, darkTime);
 
-  // cache current time (on decorate)
-  const now = {
-    hours: new Date().getHours(),
-    minutes: new Date().getMinutes(),
-    // seconds: new Date().getSeconds(),
-  };
+  // cache current time (on decorate) ((in seconds))
+  const date = new Date();
+  const now = (date.getHours() * 60 * 60) + (date.getMinutes() * 60);
 
   // default to user's theme, dark if undefined
-  let light = config.solarized.lightTheme || false;
+  let light = config.solarized.lightTheme;
 
-  // check for user's settings
-  if (lightTime) {
-    // decide on light theme
-    if (now.hours >= lightTime.hours && now.minutes >= lightTime.minutes) {
-      light = true;
-      // console.log('light is: ', light);
-      // console.log('light time is', lightTime);
-    }
+  // decide on light theme...
+  if (now > lightTime) {
+    light = true;
   }
-  // and again
-  if (darkTime) {
-    if (now.hours >= darkTime.hours && now.minutes >= darkTime.minutes)  {
-      light = false;
-      // console.log('light is: ', light);
-      // console.log('dark time is', darkTime);
-    }
+  // ... or dark
+  if (now > darkTime)  {
+    light = false;
   }
 
   const backgroundColor = light ? '#fdf6e3' : '#002833';

@@ -1,23 +1,28 @@
 {
-  "name": "hyper-solarized-darker",
-  "version": "0.1.0",
-  "description": "Solarized theme for Hyper",
+  "name": "Hyper Solarized One",
+  "version": "0.0.1",
+  "description": "Solarized theme for Hyper Terminal that can automatically switch light/dark based on time of day.",
   "main": "index.js",
   "keywords": [
     "hyper",
     "hyper-theme",
+    "terminal",
+    "javascript",
     "colors",
     "theme",
-    "solarized"
+    "solarized",
+    "automatic",
+    "time",
+    "vim"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Noskcaj19/hyper-solarized.git"
+    "url": "https://github.com/sh78/hyper-solarized-one.git"
   },
-  "author": "Noskcaj19",
+  "author": "Sean Henderson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Noskcaj19/hyper-solarized/issues"
+    "url": "https://github.com/sh78/hyper-solarized-one/issues"
   },
-  "homepage": "https://github.com/Noskcaj19/hyper-solarized"
+  "homepage": "https://github.com/sh78/hyper-solarized-one"
 }

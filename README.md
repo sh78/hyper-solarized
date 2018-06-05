@@ -75,4 +75,4 @@ Praise be to [Ethan Schoonover](http://ethanschoonover.com/) for blessing our ey
 
 Thanks [@wesbos](https://wesbos.com/) for helping me quickly assimilate with ES6.
 
-This is a fork of [Noskcaj19](/Noskcaj19)/**[hyper-solarized](/Noskcaj19/hyper-solarized)**, which was the only hyper solarized theme I found that didn't ravage vim.
+This is a fork of [Noskcaj19](/Noskcaj19) / **[hyper-solarized](/Noskcaj19/hyper-solarized)**, which was the only hyper solarized theme I found that didn't ravage vim.

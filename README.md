@@ -10,8 +10,6 @@ One theme to rule them both.
 
 ## Background 🎨
 
-PUN INTENDED.
-
 Upon switching from [iTerm](https://www.iterm2.com/) to Hyper, I missed the ability to easily change the color palette 1) via keyboard shortcut, and 2) [based on time of day](https://github.com/sh78/dotfiles/blob/a5aeed851ad439c2ca13591fa908b419a91566b6/.config/omf/init.fish#L36). This solves #2 (for now), and is halfway to solving #1.
 
 Issue #3 is that all of the Solarized themes on npm broke down while using vim with Ethan Schoonover's [vim-colors-solarized](/altercation/vim-colors-solarized); vim was almost unusable due to lack of visibility, due to weird color assignments.
@@ -41,7 +39,7 @@ The theme defaults to the dark variant. Switch to the light variant by setting t
 
 ```js
 solarized: {
-    'light': true
+  'light': true
 }
 ```
 
@@ -49,7 +47,6 @@ To set up automatic color variant switching:
 
 ```js
 solarized: {
-  solarized: {
   lightTheme: true,
   light: "08:00",
   dark: "18:00",

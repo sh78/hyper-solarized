@@ -30,7 +30,7 @@ background color dissonance here.
 ### Installation 🖥
 
 ```shell
-hyper i hyper-solarized
+hyper i hyper-solarized-one
 ```
 
 ### Configuration ⚙️

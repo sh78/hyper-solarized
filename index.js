@@ -47,13 +47,13 @@ exports.decorateConfig = config => {
   let light = config.solarized.lightTheme || false;
   if (now.hours >= lightTime.hours) {
     light = true;
-    console.log('light is: ', light);
-    console.log('light time is', lightTime);
+    // console.log('light is: ', light);
+    // console.log('light time is', lightTime);
   }
   if (now.hours >= darkTime.hours)  {
     light = false;
-    console.log('light is: ', light);
-    console.log('dark time is', darkTime);
+    // console.log('light is: ', light);
+    // console.log('dark time is', darkTime);
   }
 
   const backgroundColor = light ? '#fdf6e3' : '#002833';

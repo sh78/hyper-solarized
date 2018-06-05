@@ -19,7 +19,7 @@ const colors = {
 };
 
 exports.decorateConfig = config => {
-  // parse user's conf to get a nice object
+  // parse user's conf to get times in total seconds
   const formatTime = (str) => {
     let seconds; // one day === 86400
     if (str) {
@@ -56,6 +56,7 @@ exports.decorateConfig = config => {
   const cursorColor     = light ? '#657b83' : '#839496';
   const splitplaneColor = light ? '#e6dfcb' : '#001f27';
   const tabsColor       = light ? '#e6dfcb' : '#001f27';
+  const tabActiveColor  = light ? '#001f27' : colors.white;
   const borderColor     = 'transparent';
 
   return Object.assign({}, config, {
@@ -79,6 +80,9 @@ exports.decorateConfig = config => {
       .tabs_nav {
       	background-color    : ${tabsColor};
       }
+      .tabs_title {
+        color               : ${tabActiveColor};
+      }
       .tab_tab {
         color               : ${foregroundColor};
         background-color    : ${tabsColor};
@@ -90,7 +94,7 @@ exports.decorateConfig = config => {
       .tab_tab.tab_active {
         border              : transparent;
         font-weight         : bold;
-        color               : #b3b3b3;
+        color               : ${tabActiveColor};
         background-color    : ${backgroundColor};
       }
       .splitpane_divider {

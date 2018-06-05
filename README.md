@@ -39,7 +39,7 @@ The theme defaults to the dark variant. Switch to the light variant by setting t
 
 ```js
 solarized: {
-  'light': true
+  'lightTheme': true
 }
 ```
 

@@ -1,24 +1,60 @@
+/*jshint esversion: 6 */
 const colors = {
-  lightBlack: '#002833',
-  black: '#003541',
-  lightGreen: '#586e75',
-  lightYellow: '#657b83',
-  lightBlue: '#839496',
-  lightCyan: '#93a1a1',
-  white: '#eee8d5',
-  lightWhite: '#fdf6e3',
-  yellow: '#b58901',
-  lightRed: '#cb4b16',
-  red: '#dc322f',
-  magenta: '#d33682',
-  lightMagenta: '#6c6ec6',
-  blue: '#268bd2',
-  cyan: '#2aa198',
-  green: '#859901'
+  lightBlack   : '#002833',
+  black        : '#003541',
+  lightGreen   : '#586e75',
+  lightYellow  : '#657b83',
+  lightBlue    : '#839496',
+  lightCyan    : '#93a1a1',
+  white        : '#eee8d5',
+  lightWhite   : '#fdf6e3',
+  yellow       : '#b58901',
+  lightRed     : '#cb4b16',
+  red          : '#dc322f',
+  magenta      : '#d33682',
+  lightMagenta : '#6c6ec6',
+  blue         : '#268bd2',
+  cyan         : '#2aa198',
+  green        : '#859901'
 };
 
 exports.decorateConfig = config => {
-  const light = config.solarized ? config.solarized.light : false;
+  // parse user's conf to get a nice object
+  const formatTime = (str) => {
+    let arr = str.split(':').slice(0,2);
+    for(let i = 0; i < arr.length; i++) {
+      arr[i] = parseInt(arr[i]);
+    }
+    let obj = {
+      hours: arr[0],
+      minutes: arr[1],
+    };
+    return obj;
+  };
+
+  const lightTime = formatTime(config.solarized.light);
+  const darkTime = formatTime(config.solarized.dark);
+  // console.info(lightTime, darkTime);
+
+  // cache current time (on decorate)
+  const now = {
+    hours: new Date().getHours(),
+    minutes: new Date().getMinutes(),
+    // seconds: new Date().getSeconds(),
+  };
+
+  // default to user's theme, dark if undefined
+  let light = config.solarized.lightTheme || false;
+  if (now.hours >= lightTime.hours) {
+    light = true;
+    console.log('light is: ', light);
+    console.log('light time is', lightTime);
+  }
+  if (now.hours >= darkTime.hours)  {
+    light = false;
+    console.log('light is: ', light);
+    console.log('dark time is', darkTime);
+  }
 
   const backgroundColor = light ? '#fdf6e3' : '#002833';
   const foregroundColor = light ? '#657b83' : '#839496';
@@ -39,32 +75,32 @@ exports.decorateConfig = config => {
     css: `
       ${config.css || ''}
       * {
-      	text-rendering: optimizeLegibility;
-        font-weight: 500;
+      	text-rendering      : optimizeLegibility;
+        font-weight         : 500;
       }
       .tabs_list {
-      	border: 0;
+      	border              : 0;
       }
       .tabs_nav {
-      	background-color: ${tabsColor};
+      	background-color    : ${tabsColor};
       }
       .tab_tab {
-        color: ${foregroundColor};
-        background-color: ${tabsColor};
-				border-color: ${borderColor};
+        color               : ${foregroundColor};
+        background-color    : ${tabsColor};
+				border-color        : ${borderColor};
       }
-      .tab_tab:before {
-      	border: 0;
+      .tab_tab              : before {
+      	border              : 0;
       }
       .tab_tab.tab_active {
-        border: transparent;
-        font-weight: bold;
-        color: #b3b3b3;
-        background-color: ${backgroundColor};
+        border              : transparent;
+        font-weight         : bold;
+        color               : #b3b3b3;
+        background-color    : ${backgroundColor};
       }
       .splitpane_divider {
-      	background-color: ${splitplaneColor};
+      	background-color    : ${splitplaneColor};
       }
     `
-  })
+  });
 };

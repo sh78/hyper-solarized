@@ -69,8 +69,8 @@ License: MIT (because npm yells at you for typing in 'steal').
 
 - Bind keyboard shortcut to toggle theme temporarily.
 - Change white text in tab bar for light variant.
-- Set highlight colors to inverted base colors (use must comment out their own
-highlight conf).
+- Set highlight colors to inverted base colors (use must comment out their own highlight conf).
+- Fix fish shell autocomplete highlight color invisible with with dark theme
 
 ## Credits 👏🏽
 

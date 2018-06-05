@@ -2,11 +2,13 @@
 const colors = {
   lightBlack   : '#002833',
   black        : '#003541',
+  blackAlt     : '#001f27',
   lightGreen   : '#586e75',
   lightYellow  : '#657b83',
   lightBlue    : '#839496',
   lightCyan    : '#93a1a1',
   white        : '#eee8d5',
+  whiteAlt     : '#e6dfcb',
   lightWhite   : '#fdf6e3',
   yellow       : '#b58901',
   lightRed     : '#cb4b16',
@@ -17,6 +19,7 @@ const colors = {
   cyan         : '#2aa198',
   green        : '#859901'
 };
+
 
 exports.decorateConfig = config => {
   // parse user's conf to get times in total seconds
@@ -51,12 +54,12 @@ exports.decorateConfig = config => {
     light = false;
   }
 
-  const backgroundColor = light ? '#fdf6e3' : '#002833';
-  const foregroundColor = light ? '#657b83' : '#839496';
-  const cursorColor     = light ? '#657b83' : '#839496';
-  const splitplaneColor = light ? '#e6dfcb' : '#001f27';
-  const tabsColor       = light ? '#e6dfcb' : '#001f27';
-  const tabActiveColor  = light ? '#001f27' : colors.white;
+  const backgroundColor = colors[light ? 'lightWhite'  : 'lightBlack'];
+  const foregroundColor = colors[light ? 'lightYellow' : 'lightBlue'];
+  const cursorColor     = colors[light ? 'lightYellow' : 'lightBlue'];
+  const splitplaneColor = colors[light ? 'whiteAlt'    : 'blackAlt'];
+  const tabsColor       = colors[light ? 'whiteAlt'    : 'blackAlt'];
+  const tabActiveColor  = colors[light ? 'blackAlt'    : 'white'];
   const borderColor     = 'transparent';
 
   return Object.assign({}, config, {

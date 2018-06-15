@@ -1,5 +1,10 @@
 # Hyper > Solarized One 🕐
 
+## 🚨 Deprecated! 🚨
+
+Development has moved to [hyper-solarized](https://github.com/aravind-n/hyper-solarized). The time based switching features
+are now included there!
+
 One theme to rule them both.
 
 ![sample.gif](sample.gif?raw=true)
